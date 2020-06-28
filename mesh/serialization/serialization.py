@@ -192,6 +192,7 @@ def write_obj(self, filename, flip_faces=False, group=False, comments=None):
                     write_face_to_obj_file(face_index, fi)
         else:
             if hasattr(self, 'f'):
+                fi.write("usemtl {}\n".format(outbase))
                 for face_index in range(len(self.f)):
                     write_face_to_obj_file(face_index, fi)
 
